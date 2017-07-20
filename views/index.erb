@@ -3,8 +3,13 @@
   </head>
   <body>
     <p>
-      The secret number is <%= number %>
+      <%= message %>
     </p>
+
+    <% if user_won %>
+      <p>The secret number is <%= number %></p>
+    <% end %>
+
     <form>
       <input type='text' name='guess' />
       <input type='submit' value='Guess!' />
