@@ -2,11 +2,9 @@
   <head>
   </head>
   <body>
-    <p>
-      <%= message %>
-    </p>
+    <p><%= message %></p>
 
-    <% if user_won %>
+    <% if message && message.include?('right') %>
       <p>The secret number is <%= number %></p>
     <% end %>
 

@@ -1,17 +1,26 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-secret_number = rand(100)
-user_won = false
+set :number, rand(100)
+
+helpers do
+  def check_guess(guess)
+    if guess
+      if guess.to_i > settings.number
+        message = "Too high!"
+      elsif guess.to_i < settings.number
+        message = "Too low!"
+      else
+        message = "You got it right!"
+      end
+    else
+      nil
+    end
+  end
+end
 
 get '/' do
-  if params['guess'].to_i > secret_number
-    message = "Too high!"
-  elsif params['guess'].to_i < secret_number
-    message = "Too low!"
-  else
-    message = "You got it right!"
-    user_won = true
-  end
-  erb :index, :locals => {:number => secret_number, :message => message, :user_won => user_won}
+  guess = params["guess"]
+  message = check_guess(guess)
+  erb :index, :locals => {:number => settings.number, :message => message}
 end
