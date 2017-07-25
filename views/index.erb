@@ -9,7 +9,7 @@
       <h2 id="subheading">Guess the secret number in as less tries as possible!</h2>
 
       <% if message %>
-        <p class="message"><%= message %></p>
+        <p class="<%= closeness %> message"><%= message %></p>
 
         <% if message.include?('right') %>
           <p>The secret number is <%= number %></p>
