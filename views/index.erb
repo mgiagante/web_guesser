@@ -1,6 +1,7 @@
 <html>
   <head>
     <link href="<%= url('/assets/styles.css') %>" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   </head>
   <body>
     <div id="main-container">
@@ -16,8 +17,8 @@
       <% end %>
 
       <form>
-        <input type='text' name='guess' />
-        <input type='submit' value='Guess!' />
+        <input id="number-field" type='text' name='guess' />
+        <input class="submit-button" type='submit' value='Guess!' />
       </form>
     </div>
 
