@@ -3,11 +3,14 @@
     <link href="<%= url('/assets/styles.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <p><%= message %></p>
+    <% if message %>
+      <p><%= message %></p>
 
-    <% if message && message.include?('right') %>
-      <p>The secret number is <%= number %></p>
+      <% if message.include?('right') %>
+        <p>The secret number is <%= number %></p>
+      <% end %>
     <% end %>
+
 
     <form>
       <input type='text' name='guess' />
