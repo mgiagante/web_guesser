@@ -1,3 +1,35 @@
 body {
-  background-color : red;
+  background-color: #a1bdea;
+  font-family: Oswald;
+}
+
+#main-container {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.message {
+  font-size: 32px;
+}
+
+.equal {
+  color: green;
+}
+
+.close {
+  color: orange;
+}
+
+.far {
+  color: red;
+}
+
+.submit-button {
+  border-radius: 20%;
+  background-color: #ba2514;
+}
+
+#number-field {
+  width: 2em;
 }
