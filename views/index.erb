@@ -3,18 +3,23 @@
     <link href="<%= url('/assets/styles.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <% if message %>
-      <p><%= message %></p>
+    <div id="main-container">
+      <h1 id="heading">Web Guesser</h1>
+      <h2 id="subheading">Guess the secret number in as less tries as possible!</h2>
 
-      <% if message.include?('right') %>
-        <p>The secret number is <%= number %></p>
+      <% if message %>
+        <p class="message"><%= message %></p>
+
+        <% if message.include?('right') %>
+          <p>The secret number is <%= number %></p>
+        <% end %>
       <% end %>
-    <% end %>
 
+      <form>
+        <input type='text' name='guess' />
+        <input type='submit' value='Guess!' />
+      </form>
+    </div>
 
-    <form>
-      <input type='text' name='guess' />
-      <input type='submit' value='Guess!' />
-    </form>
   </body>
 </html>
