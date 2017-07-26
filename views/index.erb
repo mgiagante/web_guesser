@@ -1,18 +1,18 @@
 <html>
   <head>
     <link href="<%= url('/assets/styles.css') %>" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
   </head>
   <body>
     <div id="main-container">
       <h1 id="heading">Web Guesser</h1>
-      <h2 id="subheading">Guess the secret number in as less tries as possible!</h2>
+      <h2 id="subheading">Guess the secret number in as few tries as possible!</h2>
 
       <% if message %>
         <p class="<%= closeness %> message"><%= message %></p>
 
         <% if message.include?('right') %>
-          <p>The secret number is <%= number %></p>
+          <p id="revealed-number">The secret number is <%= number %></p>
         <% end %>
       <% end %>
 
