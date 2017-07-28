@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+@@remaining_tries = 5
+
 set :number, rand(100)
 
 helpers do
@@ -28,6 +30,10 @@ helpers do
       "far"
     end
   end
+
+  def guessed_right?
+    @closeness.downcase.include? 'right'
+  end
 end
 
 get '/' do
@@ -35,12 +41,13 @@ get '/' do
   message = check_guess(guess)
 
   if guess
-    closeness = closeness_for(guess.to_i, settings.number)
+    @closeness = closeness_for(guess.to_i, settings.number)
+    @@remaining_tries -= 1 unless guessed_right? 
   end
 
   erb :index, :locals => {
     :number => settings.number, 
     :message => message, 
-    :closeness => closeness
+    :closeness => @closeness
   }
 end
