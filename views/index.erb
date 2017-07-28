@@ -7,6 +7,7 @@
     <div id="main-container">
       <h1 id="heading">Web Guesser</h1>
       <h2 id="subheading">Guess the secret number in as few tries as possible!</h2>
+      <h3 id="subheading">Remaining Tries: <%= @@remaining_tries %></h3>
 
       <% if message %>
         <p class="<%= closeness %> message"><%= message %></p>
