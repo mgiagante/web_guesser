@@ -44,7 +44,6 @@ helpers do
 end
 
 get '/' do
-  puts "#{@@number} generated!"
   @guess = params["guess"]
   message = check_guess(@guess) ? check_guess(@guess)[:message] : nil
 
